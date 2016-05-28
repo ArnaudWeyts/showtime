@@ -1,14 +1,11 @@
 #Project Serverside Webscripten 2
-## To build and serve to localhost:8000, run:
+## To build, run:
+This automatically generates an .env file with a generated application key
 ```bash
-# install components
-npm install && bower install && composer install &&
-# create an empty sqlite database
-sqlite3 /showtime/storage/1516showtime.db "" &&
-# migrate the database layout
-php artisan migrate &&
-# seed the default entries
-php artisan migrate:refresh --seed &&
-# serve to localhost
+sh install
+```
+
+## To serve to localhost:8000, run:
+```bash
 php artisan serve
 ```
