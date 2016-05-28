@@ -66,9 +66,9 @@
 				    	That's it folks! We've entered the alpha stage of the website!
 				    	During the  coming months we'll be testing out the website and improving it where possible.
 				    	For that process to be efficient, you're our most important asset!
-				    	Test our website and sends us and bugs/improvements you may find.
+				    	Test our website and send us any bugs/improvements you may find.
 				    </p>
-				    <p>Stay updated with the developement on GitHub <a href="https://github.com" class="no-linkstyle">here</a>!</p>
+				    <p>Stay updated with the developement on GitHub <a href="https://github.com/ArnaudWeyts/showtime" class="no-linkstyle">here</a>!</p>
 				</div>
 			</div>
 			<div class="clearfix"></div>
