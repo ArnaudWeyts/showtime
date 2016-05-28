@@ -1,0 +1,6 @@
+#/bin/sh
+
+composer install
+sqlite3 storage/1516.db ""
+php artisan migrate
+php artisan db:seed
