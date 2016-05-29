@@ -23,7 +23,7 @@ class HomeController extends Controller
     }
 
     public function reviewOverview() {
-        $reviews = Review::orderby('reviews.updated_at', 'asc')
+        $reviews = Review::orderBy('reviews.updated_at', 'desc')
         ->join('shows', 'reviews.show_id', '=', 'shows.id')
         ->join('users', 'reviews.user_id', '=', 'users.id')
         ->select('reviews.id', 'reviews.title', 'shortcontent', 'shows.title AS show_title', 'reviews.rating', 'username', 'user_id', 'type')
@@ -37,7 +37,8 @@ class HomeController extends Controller
         $reviews = Review::where('show_id', '=', $id)
         ->join('users', 'reviews.user_id', '=', 'users.id')
         ->select('reviews.id', 'reviews.title', 'shortcontent', 'reviews.rating', 'username', 'user_id', 'type')
-        ->paginate(9);;
+        ->orderBy('reviews.updated_at', 'desc')
+        ->paginate(9);
         return view('reviews.overview', ['reviews' => $reviews, 'show' => $show]);
     }
 
@@ -47,7 +48,8 @@ class HomeController extends Controller
         $reviews = Review::where('user_id', '=', $id)
         ->join('shows', 'reviews.show_id', '=', 'shows.id')
         ->select('reviews.id', 'reviews.title', 'shortcontent', 'shows.title AS show_title', 'reviews.rating')
-        ->paginate(9);;
+        ->orderby('reviews.updated_at', 'desc')
+        ->paginate(9);
         return view('reviews.overview', ['reviews' => $reviews, 'user' => $user]);
     }
 
