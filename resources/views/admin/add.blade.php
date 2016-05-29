@@ -94,7 +94,7 @@
   			</div>
 
 			<div class="mdl-textfield mdl-js-textfield addreview-content">
-			    <textarea class="mdl-textfield__input" name="shortcontent" type="text" rows= "6" id="shortcontent" maxlength="200">{{ old('shortcontent') }}</textarea>
+			    <textarea class="mdl-textfield__input" name="shortcontent" type="text" rows= "6" id="shortcontent" maxlength="400">{{ old('shortcontent') }}</textarea>
 			    <label class="mdl-textfield__label" for="shortcontent">Enter a summary about your review here...</label>
 			    @if ($errors->has('shortcontent'))
 					<span class="{{ $errors->has('shortcontent') ? 'mdl-textfield__error' : '' }}">
@@ -134,7 +134,7 @@
 @endsection
 @section('JS')
 <script>
-	var text_max = 200;
+	var text_max = 400;
 	var remainingchars = document.getElementById('remainingchars');
 	var shortcontent = document.getElementById('shortcontent');
 	remainingchars.innerHTML = text_max - shortcontent.value.length + ' characters remaining';

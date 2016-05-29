@@ -27,7 +27,7 @@ class HomeController extends Controller
         ->join('shows', 'reviews.show_id', '=', 'shows.id')
         ->join('users', 'reviews.user_id', '=', 'users.id')
         ->select('reviews.id', 'reviews.title', 'shortcontent', 'shows.title AS show_title', 'reviews.rating', 'username', 'user_id', 'type')
-        ->paginate(9);
+        ->paginate(6);
         return view('reviews.overview', ['reviews' => $reviews]);
     }
 
@@ -38,7 +38,7 @@ class HomeController extends Controller
         ->join('users', 'reviews.user_id', '=', 'users.id')
         ->select('reviews.id', 'reviews.title', 'shortcontent', 'reviews.rating', 'username', 'user_id', 'type')
         ->orderBy('reviews.updated_at', 'desc')
-        ->paginate(9);
+        ->paginate(6);
         return view('reviews.overview', ['reviews' => $reviews, 'show' => $show]);
     }
 
@@ -49,7 +49,7 @@ class HomeController extends Controller
         ->join('shows', 'reviews.show_id', '=', 'shows.id')
         ->select('reviews.id', 'reviews.title', 'shortcontent', 'shows.title AS show_title', 'reviews.rating')
         ->orderby('reviews.updated_at', 'desc')
-        ->paginate(9);
+        ->paginate(6);
         return view('reviews.overview', ['reviews' => $reviews, 'user' => $user]);
     }
 

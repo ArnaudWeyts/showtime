@@ -28,7 +28,7 @@ class UserController extends Controller
         if ($request->input('extended') == "extended") {
             $this->validate($request, [
                 'title' => 'required|max:125',
-                'shortcontent' => 'required|max:200',
+                'shortcontent' => 'required|max:400',
                 'content' => 'required',
                 'rating' => 'required'
             ]);
@@ -36,7 +36,7 @@ class UserController extends Controller
         else {
              $this->validate($request, [
                 'title' => 'required|max:125',
-                'shortcontent' => 'required|max:200',
+                'shortcontent' => 'required|max:400',
                 'rating' => 'required'
             ]);
         }
@@ -48,7 +48,7 @@ class UserController extends Controller
         $show->numreviews = ($numreviews) + 1;
 
         // update the rating of the show
-        $show->rating = round(($show->rating * $show->numreviews-1 + $request->input('rating')) / $show->numreviews);
+        $show->rating = round(($show->rating * ($show->numreviews-1) + $request->input('rating')) / $show->numreviews);
 
         $show->updated_at = \Carbon\Carbon::now();
         $show->save();
@@ -81,7 +81,7 @@ class UserController extends Controller
         if ($request->input('extended') == "extended") {
             $this->validate($request, [
                 'title' => 'required|max:125',
-                'shortcontent' => 'required|max:200',
+                'shortcontent' => 'required|max:400',
                 'content' => 'required',
                 'rating' => 'required'
             ]);
@@ -89,7 +89,7 @@ class UserController extends Controller
         else {
              $this->validate($request, [
                 'title' => 'required|max:125',
-                'shortcontent' => 'required|max:200',
+                'shortcontent' => 'required|max:400',
                 'rating' => 'required'
             ]);
         }

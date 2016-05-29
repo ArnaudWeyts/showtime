@@ -17,12 +17,12 @@ class CreateShowsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('creatorname');
-            $table->integer('numreviews');
+            $table->integer('numreviews')->default(0);
             $table->string('trailerurl')->nullable();
             $table->tinyinteger('numseasons');
             $table->smallinteger('releaseyear');
             $table->smallinteger('endyear')->nullable();
-            $table->tinyinteger('rating');
+            $table->tinyinteger('rating')->nullable();
             $table->smallinteger('numepisodes');
             $table->timestamps();
         });

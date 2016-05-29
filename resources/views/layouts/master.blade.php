@@ -47,7 +47,7 @@
 						<a class="no-linkstyle" href="{{ url('/register') }}"><li class="mdl-menu__item">Register</li></a>
 					@else
 						<a class="no-linkstyle" href="{{ url('/dashboard') }}"><li class="mdl-menu__item">My Dashboard</li></a>
-						<a class="no-linkstyle" href="{{ url('/dashboard') }}"><li class="mdl-menu__item">Settings</li></a>
+						<!--<a class="no-linkstyle" href="{{ url('/dashboard') }}"><li class="mdl-menu__item">Settings</li></a>-->
 						<a class="no-linkstyle" href="{{ url('/logout') }}"><li class="mdl-menu__item">Logout</li></a>
 					@endif
 				</ul>
