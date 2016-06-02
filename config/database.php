@@ -73,17 +73,16 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => $host,
-            'port' => env('DB_PORT', '5432'),
+        'pgsql' => array(
+            'driver'   => 'pgsql',
+            'host'     => $host,
             'database' => $database,
             'username' => $username,
             'password' => $password,
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
-        ],
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+        ),
 
     ],
 
