@@ -5,3 +5,6 @@ Homestead.yaml
 Homestead.json
 .env
 .DS_Store
+/database/seeds/UserTableSeeder.php
+/database/seeds/ReviewTableSeeder.php
+.travis.yml
