@@ -1,10 +1,18 @@
 <?php
 
-$url = parse_url(getenv("DATABASE_URL"));
+$url = "";
+
+if (env('APP_DEBUG')) {
+    $url = parse_url(getenv("DEBUG_DATABASE_URL"));
+    $password = "";
+}
+else {
+    $url = parse_url(getenv("DATABASE_URL"));
+    $password = $url["pass"];
+}
 
 $host = $url["host"];
 $username = $url["user"];
-$password = $url["pass"];
 $database = substr($url["path"], 1);
 
 return [

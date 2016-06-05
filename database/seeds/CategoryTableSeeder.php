@@ -10,50 +10,43 @@ class CategoryTableSeeder extends Seeder
      * @return void
      */
     public function run()
+
     {
         DB::table('categories')->insert([
-        	'name' => 'Fantasy',
-        	'show_id' => 1
+        	'name' => 'Action'
         ]);
         DB::table('categories')->insert([
-        	'name' => 'Drama',
-        	'show_id' => 1
+        	'name' => 'Adventure'
         ]);
         DB::table('categories')->insert([
-        	'name' => 'Action',
-        	'show_id' => 2
+        	'name' => 'Animation'
         ]);
         DB::table('categories')->insert([
-        	'name' => 'Drama',
-        	'show_id' => 2
+            'name' => 'Comedy'
         ]);
         DB::table('categories')->insert([
-        	'name' => 'Sci-Fi',
-        	'show_id' => 2
+            'name' => 'Crime'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Comedy',
-            'show_id' => 3
+        	'name' => 'Documentary'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Drama',
-            'show_id' => 3
+        	'name' => 'Drama'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Drama',
-            'show_id' => 4
+        	'name' => 'Family'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Drama',
-            'show_id' => 5
+        	'name' => 'Fantasy'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Crime',
-            'show_id' => 5
+        	'name' => 'Horor'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Thriller',
-            'show_id' => 5
+        	'name' => 'Sci-Fi'
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Thriller'
         ]);
     }
 }

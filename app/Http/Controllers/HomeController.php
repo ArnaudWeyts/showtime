@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Review;
 use App\Show;
 use App\User;
+use App\ShowCategories;
 use App\Category;
 use Auth;
 
@@ -84,7 +85,9 @@ class HomeController extends Controller
 
     public function showDetail($id) {
         $show = Show::find($id);
-        $categories = $show->categories()->get();;
+        $categories = ShowCategories::where('show_id', '=', $id)
+        ->join('categories', 'show_categories.category_id', '=', 'categories.id')
+        ->get();
         $reviews = Review::where('show_id', '=', $id)
         ->join('users', 'reviews.user_id', '=', 'users.id')
         ->select('reviews.id', 'reviews.title', 'shortcontent', 'reviews.rating', 'username', 'user_id', 'type')
@@ -114,21 +117,22 @@ class HomeController extends Controller
         $request->flash();
         $shows = Show::select('shows.id AS show_id', 'title', 'description', 'numreviews', 'rating');
         if ($request->c && $request->c != 'All') {
-            $shows = Show::join('categories', 'shows.id', '=', 'categories.show_id')
+            $shows = Show::join('show_categories', 'shows.id', '=', 'show_categories.show_id')
+            ->join('categories', 'show_categories.category_id', '=', 'categories.id')
             ->where('categories.name', '=', $request->c);
             if ($request->s) {
-                $shows->where('title', 'LIKE', '%' . $request->s . '%');
+                $shows->where('shows.title', 'ILIKE', '%' . $request->s . '%');
             }
         }
         else if ($request->s) {
-            $shows= Show::where('title', 'LIKE', '%' . $request->s . '%')
+            $shows= Show::where('title', 'ILIKE', '%' . $request->s . '%')
             ->select('shows.id AS show_id', 'title', 'description', 'numreviews', 'rating');
         }
         $shows = $shows->orderBy('numreviews', 'desc')
         ->paginate(6);
 
         $categories = Category::orderBy('name', 'asc')
-        ->select('DISTINCT ON (name) *');
+        ->get();
         return view('shows.overview', ['shows' => $shows, 'categories' => $categories]);
     }
 }

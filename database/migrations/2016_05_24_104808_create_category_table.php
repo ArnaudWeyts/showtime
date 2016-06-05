@@ -14,9 +14,7 @@ class CreateCategoryTable extends Migration
     {
         Schema::create('categories', function(Blueprint $table) {
             $table->increments('id');
-            $table->enum('name', ['Action', 'Sci-Fi', 'Comedy', 'Crime', 'Fantasy', 'Documentary', 'Horror', 'Adventure', 'Animation', 'Family', 'Drama', 'Thriller']);
-            $table->integer('show_id')->unsigned();
-            $table->foreign('show_id')->references('id')->on('shows')->onDelete('cascade');
+            $table->string('name');
         });
     }
 
