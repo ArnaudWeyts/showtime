@@ -128,8 +128,7 @@ class HomeController extends Controller
         ->paginate(6);
 
         $categories = Category::orderBy('name', 'asc')
-        ->groupBy('name')
-        ->get();
+        ->select('DISTINCT ON (name) *');
         return view('shows.overview', ['shows' => $shows, 'categories' => $categories]);
     }
 }
