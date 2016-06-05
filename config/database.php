@@ -2,7 +2,7 @@
 
 $url = "";
 
-if (env('APP_DEBUG')) {
+if (env('APP_DEBUG') && env('APP_ENV') == 'local') {
     $url = parse_url(getenv("DEBUG_DATABASE_URL"));
     $password = "";
 }
